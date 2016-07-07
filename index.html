@@ -200,6 +200,69 @@
 
       <div class="body-wrap">
   
+    <article id="post- Android之Wifi开发" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/07/ Android之Wifi开发/" class="article-date">
+  	<time datetime="2016-07-07T01:42:52.000Z" itemprop="datePublished">2016-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/07/ Android之Wifi开发/">Android之Wifi开发</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要介绍android与wifi交互的一些应用技巧。常见的场景有：检测wifi，连接wifi，打开wifi设置，检测wifi网络变化，只允许wifi网络下载，获取wifi名称，检测网速等。<br><img src="http://img.blog.csdn.net/20160420122207456" alt="wifi检测并提示打开Wi-Fi系统设置"><br>普及下基本知识：</p>
+<h3 id="1-WiFi的五种状态"><a href="#1-WiFi的五种状态" class="headerlink" title="1.WiFi的五种状态"></a>1.WiFi的五种状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">WifiManager.WIFI_STATE_DISABLED: //不可用</div><div class="line">WifiManager.WIFI_STATE_DISABLING://正在关闭或者断开</div><div class="line">WifiManager.WIFI_STATE_ENABLED://可用</div><div class="line">WifiManager.WIFI_STATE_ENABLING://正在打开或者连接</div><div class="line">WifiManager.WIFI_STATE_UNKNOWN://未知</div></pre></td></tr></table></figure>
+<h3 id="2-需要注册的权限"><a href="#2-需要注册的权限" class="headerlink" title="2.需要注册的权限"></a>2.需要注册的权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot; /&gt;&lt;!-- 允许程序改变网络状态 --&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;&lt;!--允许程序访问WIFI网络状态信息  --&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;&lt;!-- 允许程序改变WIFI状态 --&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;&lt;!-- 允许程序访问网络--&gt;</div></pre></td></tr></table></figure>
+<h3 id="3-判断是否为wifi网络"><a href="#3-判断是否为wifi网络" class="headerlink" title="3.判断是否为wifi网络"></a>3.判断是否为wifi网络</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> /*** 判断是wifi网络,wifi就可以建议下载或者在线播放。</div><div class="line"> */</div><div class="line">public static boolean isWifi(Context context) &#123;</div><div class="line">	ConnectivityManager cm =(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);</div><div class="line">   NetworkInfo networkInfo=cm.getActiveNetworkInfo();</div><div class="line">if (networkInfo != null&amp;&amp; networkInfo.getType()==ConnectivityManager.TYPE_WIFI) &#123;</div><div class="line">       return true;</div><div class="line">   &#125;</div><div class="line">   return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-获取wifi的名称"><a href="#4-获取wifi的名称" class="headerlink" title="4.获取wifi的名称"></a>4.获取wifi的名称</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static String getCurrentWifiName(Context context) &#123;</div><div class="line">        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);</div><div class="line">        WifiInfo wifiInfo = wifiManager.getConnectionInfo();</div><div class="line">        String ssid = wifiInfo != null ? wifiInfo.getSSID() : &quot;&quot;;</div><div class="line">        return ssid.replace(&quot;\&quot;&quot;,&quot;&quot;).replace(&quot;&lt;unknown ssid&gt;&quot;,&quot;&quot;);//返回的字符串有双引号，要去掉</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="5-判断wifi的状态（是否开启）"><a href="#5-判断wifi的状态（是否开启）" class="headerlink" title="5.判断wifi的状态（是否开启）"></a>5.判断wifi的状态（是否开启）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//判断wifi的状态是否开启</div><div class="line">   public static boolean checkWifiState(Context context) &#123;</div><div class="line">       ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);</div><div class="line">       NetworkInfo.State state = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();</div><div class="line">       if (state== NetworkInfo.State.DISCONNECTED||state== NetworkInfo.State.DISCONNECTING)&#123;</div><div class="line">           LogUtils.debug(&quot;wifi closed &quot;);</div><div class="line">           return false;</div><div class="line">       &#125;else&#123;</div><div class="line">           LogUtils.debug(&quot;wifi connected &quot;);</div><div class="line">           return true;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="6-判断wifi是否连接"><a href="#6-判断wifi是否连接" class="headerlink" title="6.判断wifi是否连接"></a>6.判断wifi是否连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//判断wifi是否isConnected的有效方式</div><div class="line">public boolean isWiFiActive(Context context) &#123;</div><div class="line">    ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);</div><div class="line">    if (connectivity != null) &#123;</div><div class="line">        NetworkInfo[] infos = connectivity.getAllNetworkInfo();</div><div class="line">        if (infos != null) &#123;</div><div class="line">            for (NetworkInfo ni : infos) &#123;</div><div class="line">                if (ni.getTypeName().equals(&quot;WIFI&quot;) &amp;&amp; ni.isConnected()) &#123;</div><div class="line">                    return true;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="7-获取wifi网络对应的IP地址"><a href="#7-获取wifi网络对应的IP地址" class="headerlink" title="7.获取wifi网络对应的IP地址"></a>7.获取wifi网络对应的IP地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 得到本机在局域网中的IP</div><div class="line">    public static String getLocalIP(Context context) &#123;</div><div class="line">        if (context==null)&#123;</div><div class="line">            return &quot;&quot;;</div><div class="line">        &#125;</div><div class="line">        WifiManager wifiService = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);</div><div class="line">        WifiInfo wifiinfo = wifiService.getConnectionInfo();</div><div class="line">        int ip = wifiinfo.getIpAddress();</div><div class="line">        if (ip==0)&#123;</div><div class="line">            return &quot;&quot;;</div><div class="line">        &#125;</div><div class="line">        //获取到的ip地址是一串数字，需要转化成标准格式</div><div class="line">        String ip_address = intToIp(ip);</div><div class="line">        return ip_address;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //转换为IP地址格式</div><div class="line">    public static String intToIp(int i) &#123;</div><div class="line">        return (i &amp; 0xFF) + &quot;.&quot; + ((i &gt;&gt; 8) &amp; 0xFF) + &quot;.&quot; + ((i &gt;&gt; 16) &amp; 0xFF)</div><div class="line">                + &quot;.&quot; + (i &gt;&gt; 24 &amp; 0xFF);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="8-打开wifi系统设置界面"><a href="#8-打开wifi系统设置界面" class="headerlink" title="8.打开wifi系统设置界面"></a>8.打开wifi系统设置界面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//打开wifi系统设置界面</div><div class="line">public static void openWifiConfig(Activity activity, int requestCode) &#123;</div><div class="line">    Intent intent = null;</div><div class="line">    if (android.os.Build.VERSION.SDK_INT &gt; 10) &#123;</div><div class="line">        // 3.0以上打开设置界面，直接用ACTION_WIRELESS_SETTINGS打开到wifi系统设置界面</div><div class="line">        intent = new Intent(Settings.ACTION_WIFI_SETTINGS);</div><div class="line">    &#125; else &#123;</div><div class="line">        intent = new Intent();</div><div class="line">        ComponentName component = new ComponentName(</div><div class="line">                &quot;com.android.settings&quot;,</div><div class="line">                &quot;com.android.settings.WirelessSettings&quot;);</div><div class="line">        intent.setComponent(component);</div><div class="line">        intent.setAction(&quot;android.intent.action.VIEW&quot;);</div><div class="line">    &#125;</div><div class="line">    if (requestCode&lt;0)&#123;</div><div class="line">        activity.startActivity(intent);//后续不做处理</div><div class="line">    &#125;else &#123;</div><div class="line">        activity.startActivityForResult(intent, requestCode);//返回原来界面后做相应处理</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="9-通过wifi与智能硬件交互"><a href="#9-通过wifi与智能硬件交互" class="headerlink" title="9.通过wifi与智能硬件交互"></a>9.通过wifi与智能硬件交互</h3><p>本质上和普通wifi网络没有差别，一般需要将当前所连接的wifi IP地址最后的那段改为1，即为server的服务地址。视情况而定，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">  * 根据本机IP，获取当前serve访问地址</div><div class="line">  */</div><div class="line"> public static String formatIPAddress(String ip_address) &#123;</div><div class="line">     try&#123;</div><div class="line">         if (ip_address!=null&amp;&amp;!&quot;&quot;.equals(ip_address)) &#123;</div><div class="line">             ip_address = ip_address.substring(0, ip_address.lastIndexOf(&quot;.&quot;));</div><div class="line">             ip_address = &quot;http://&quot; + ip_address + &quot;.1:8080/&quot;;//当前server地址</div><div class="line">         &#125;</div><div class="line">     &#125;catch (Exception e) &#123;</div><div class="line">         LogUtils.debug(e.toString());</div><div class="line">     &#125;</div><div class="line">     return ip_address;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="欢迎交流，未完待续！"><a href="#欢迎交流，未完待续！" class="headerlink" title="欢迎交流，未完待续！"></a>欢迎交流，未完待续！</h3><p>更多精彩，访问Dusan’s blog :<a href="duqian.site">duqian.site</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Dusan_杜乾：Q：291902259，公众号：OpenDeveloper</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-跨平台开发之React Native初体验" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -536,63 +599,10 @@
 
 
   
-    <article id="post-About-Me" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/06/28/About-Me/" class="article-date">
-  	<time datetime="2016-06-28T11:00:37.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/About-Me/">About Dusan</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hello,my friends!<br>Test to create a new repository on github!</p>
-<h2 id="I’m-Dusan-Android-Mobile-Developer-China"><a href="#I’m-Dusan-Android-Mobile-Developer-China" class="headerlink" title="I’m Dusan,Android/Mobile Developer,China"></a>I’m Dusan,Android/Mobile Developer,China</h2><h3 id="Welcome-to-contact-me"><a href="#Welcome-to-contact-me" class="headerlink" title="Welcome to contact me!"></a>Welcome to contact me!</h3><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p><a href="https://github.com/duqian291902259" target="_blank" rel="external">https://github.com/duqian291902259</a></p>
-<h2 id="social-contact"><a href="#social-contact" class="headerlink" title="social contact"></a>social contact</h2><p>E-mail and facebook :  duqian2010@gmail.com , Twitter:duqian3201</p>
-<h2 id="My-Blog"><a href="#My-Blog" class="headerlink" title="My Blog"></a>My Blog</h2><p><a href="http://blog.csdn.net/dzsw0117" target="_blank" rel="external">http://blog.csdn.net/dzsw0117</a></p>
-<h2 id="Others："><a href="#Others：" class="headerlink" title="Others："></a>Others：</h2><h3 id="QQ：291902259"><a href="#QQ：291902259" class="headerlink" title="QQ：291902259"></a>QQ：291902259</h3><h3 id="my-web-http-duqian-net-cn"><a href="#my-web-http-duqian-net-cn" class="headerlink" title="my web : http://duqian.net.cn"></a>my web : <a href="http://duqian.net.cn">http://duqian.net.cn</a></h3><h3 id="weibo-杜-乾"><a href="#weibo-杜-乾" class="headerlink" title="weibo: 杜_乾"></a>weibo: <a href="http://weibo.com/2876301234" target="_blank" rel="external">杜_乾</a></h3><h3 id="wechat：OpenDeveloper"><a href="#wechat：OpenDeveloper" class="headerlink" title="wechat：OpenDeveloper."></a>wechat：OpenDeveloper.</h3><h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://img.blog.csdn.net/20160615160100321" alt="公众号：OpenDeveloper"></h2><p>帅帅的我,杜乾,Mr.Du</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://img.blog.csdn.net/20160615160152852" alt="Dusan，杜乾"></h2><h3 id="I’m-concentrated-on-android，react-native，ndk，ios，web-font-end，and-so-on"><a href="#I’m-concentrated-on-android，react-native，ndk，ios，web-font-end，and-so-on" class="headerlink" title="I’m concentrated on android，react native，ndk，ios，web font-end，and so on."></a>I’m concentrated on android，react native，ndk，ios，web font-end，and so on.</h3><h3 id="Let-us-Learn-from-each-other，and-help-each-other"><a href="#Let-us-Learn-from-each-other，and-help-each-other" class="headerlink" title="Let us Learn from each other，and help each other!"></a>Let us Learn from each other，and help each other!</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
