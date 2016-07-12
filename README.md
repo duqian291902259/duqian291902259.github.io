@@ -20,10 +20,13 @@ E-mail and facebook :  duqian2010@gmail.com , Twitter:duqian3201
 ### weibo: [杜_乾](http://weibo.com/2876301234)
 ### wechat：OpenDeveloper.
 
-![公众号：OpenDeveloper](http://img.blog.csdn.net/20160615160100321)
+![我的公众号：OpenDeveloper](http://img.blog.csdn.net/20160708144434618)
+
 ---
+
 帅帅的我,杜乾,Mr.Du
-![Dusan，杜乾](http://img.blog.csdn.net/20160615160152852)
+![网页头像－公开版](http://img.blog.csdn.net/20160708152435314)
+
 ---
 ### I'm concentrated on android，web font-end，react native，ndk，ios，and so on.
 ### Let us Learn from each other，and help each other!
