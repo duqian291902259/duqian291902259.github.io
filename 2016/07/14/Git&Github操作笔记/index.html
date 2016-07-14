@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20160714105624656">
 <meta property="og:image" content="http://img.blog.csdn.net/20160714105409295">
 <meta property="og:image" content="http://img.blog.csdn.net/20160708144434618">
-<meta property="og:updated_time" content="2016-07-14T03:13:39.000Z">
+<meta property="og:updated_time" content="2016-07-14T03:16:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git&Github操作笔记">
 <meta name="twitter:description" content="Git无疑是最牛逼的版本控制系统，Linus的划时代作品，不会就out了。本文是记录git&amp;amp;github常用操作，作为备忘。
@@ -92,7 +92,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -256,6 +256,7 @@
       
         <p>Git无疑是最牛逼的版本控制系统，Linus的划时代作品，不会就out了。本文是记录git&amp;github常用操作，作为备忘。</p>
 <h3 id="一，push项目（code）到github"><a href="#一，push项目（code）到github" class="headerlink" title="一，push项目（code）到github"></a>一，push项目（code）到github</h3><p>先进入自己的github账户，新增一个仓库，然后使用git管理源码，常用HTTPS或者SSH的方式进行操作。当然也可以使用客户端工具github desktop进行管理。<br>github仓库要求必须有README文件，LICENSE, and .gitignore。.md的创建可以通过命令行或者直接在网页上面新建。</p>
+<a id="more"></a>
 <h4 id="1-新建md文件，并push到github"><a href="#1-新建md文件，并push到github" class="headerlink" title="1,新建md文件，并push到github"></a>1,新建md文件，并push到github</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">echo &quot;# HelloIOS&quot; &gt;&gt; README.md</div><div class="line">git init</div><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git remote add origin git@github.com:duqian291902259/HelloIOS.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
 <h4 id="2-push已有的仓库到github"><a href="#2-push已有的仓库到github" class="headerlink" title="2,push已有的仓库到github"></a>2,push已有的仓库到github</h4><p>push an existing repository from the command line<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:duqian291902259/HelloIOS.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
 <h4 id="3-从其它仓库导入项目到github"><a href="#3-从其它仓库导入项目到github" class="headerlink" title="3,从其它仓库导入项目到github"></a>3,从其它仓库导入项目到github</h4><p>这个不必细说，android studio，xcode等IDE都集成了git版本控制工具，可以直接push。<br>import code from another repository<br>You can initialize this repository with code from a Subversion, Mercurial, or TFS project.</p>
