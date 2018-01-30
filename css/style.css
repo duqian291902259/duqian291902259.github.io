@@ -1463,7 +1463,7 @@ a {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #fff;
+  background: #4c4d4c;
   margin: 10px 0;
   padding: 10px 10px;
   overflow: auto;
@@ -1542,7 +1542,7 @@ a {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #fff;
+  background: #4c4d4c;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1568,7 +1568,7 @@ a {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #fff;
+  background: #4c4d4c;
   color: highlight-comment;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
@@ -1584,7 +1584,7 @@ a {
   text-decoration: underline;
 }
 pre .comment {
-  color: #75715e;
+  color: #99e699;
 }
 pre .keyword,
 pre .function .keyword,
