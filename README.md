@@ -27,9 +27,6 @@ Twitter:duqian3201
 ---
 
 
-### I'm concentrated on android，web font-end，react native，ndk，ios，and so on.
-### Let us Learn from each other，and help each other!
-
 <!-- more -->
 一个不安于现状的程序猿。从事Android开发,未来将尝试更多领域！
 欢迎交流，关注github，微信公众号，加我微信dusan2010。
