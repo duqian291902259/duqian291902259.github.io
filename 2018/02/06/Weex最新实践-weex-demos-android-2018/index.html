@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Android Studio 创建aidl文件，用于进程间通讯 | Android专栏-杜乾，Dusan&#39;s blog</title>
+  <title>Weex-Demos-android-2018 | Android专栏-杜乾，Dusan&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="android studio的使用方式和eclipse大不相同，因为as是基于gradle构建项目的，eclipse是使用ant的方式构建。aidl文件，定义了不同的进程之间进行通讯的接口，那as怎么创建的呢？">
+  <meta name="description" content="更新：2018年新增了android工程，weex demo，写了一些weex小案例，仅供参考。可以学习weex原理和应用。跨平台应用的特定语法，package.json的写法，webpackge的配置，vue.js的写法，android继承weex，以及weex调试等。也可以去github直接看效果:star，fork一下吧！https://github.com/duqian291902259/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Studio 创建aidl文件，用于进程间通讯">
-<meta property="og:url" content="http://duqian.site/2016/11/22/Android Studio 创建aidl文件，用于进程间通讯/index.html">
+<meta property="og:title" content="Weex-Demos-android-2018">
+<meta property="og:url" content="http://duqian.site/2018/02/06/Weex最新实践-weex-demos-android-2018/index.html">
 <meta property="og:site_name" content="Android专栏-杜乾，Dusan's blog">
-<meta property="og:description" content="android studio的使用方式和eclipse大不相同，因为as是基于gradle构建项目的，eclipse是使用ant的方式构建。aidl文件，定义了不同的进程之间进行通讯的接口，那as怎么创建的呢？">
-<meta property="og:image" content="http://img.blog.csdn.net/20160520104152832">
-<meta property="og:updated_time" content="2018-01-30T03:15:47.858Z">
+<meta property="og:description" content="更新：2018年新增了android工程，weex demo，写了一些weex小案例，仅供参考。可以学习weex原理和应用。跨平台应用的特定语法，package.json的写法，webpackge的配置，vue.js的写法，android继承weex，以及weex调试等。也可以去github直接看效果:star，fork一下吧！https://github.com/duqian291902259/">
+<meta property="og:image" content="https://github.com/duqian291902259/weex-demo-dusan/blob/master/screenshot/weex-demo-dusan.gif">
+<meta property="og:image" content="https://github.com/duqian291902259/weex-demo-dusan/blob/master/weex-android-demo/release/weex-android-demos.jpeg">
+<meta property="og:updated_time" content="2018-02-06T06:38:19.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Studio 创建aidl文件，用于进程间通讯">
-<meta name="twitter:description" content="android studio的使用方式和eclipse大不相同，因为as是基于gradle构建项目的，eclipse是使用ant的方式构建。aidl文件，定义了不同的进程之间进行通讯的接口，那as怎么创建的呢？">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160520104152832">
+<meta name="twitter:title" content="Weex-Demos-android-2018">
+<meta name="twitter:description" content="更新：2018年新增了android工程，weex demo，写了一些weex小案例，仅供参考。可以学习weex原理和应用。跨平台应用的特定语法，package.json的写法，webpackge的配置，vue.js的写法，android继承weex，以及weex调试等。也可以去github直接看效果:star，fork一下吧！https://github.com/duqian291902259/">
+<meta name="twitter:image" content="https://github.com/duqian291902259/weex-demo-dusan/blob/master/screenshot/weex-demo-dusan.gif">
   
     <link rel="alternative" href="/atom.xml" title="Android专栏-杜乾，Dusan&#39;s blog" type="application/atom+xml">
   
@@ -207,11 +208,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Android Studio 创建aidl文件，用于进程间通讯" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Weex最新实践-weex-demos-android-2018" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/22/Android Studio 创建aidl文件，用于进程间通讯/" class="article-date">
-  	<time datetime="2016-11-22T05:55:00.000Z" itemprop="datePublished">2016-11-22</time>
+      <a href="/2018/02/06/Weex最新实践-weex-demos-android-2018/" class="article-date">
+  	<time datetime="2018-02-06T02:55:00.000Z" itemprop="datePublished">2018-02-06</time>
 </a>
     </div>
   
@@ -224,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android Studio 创建aidl文件，用于进程间通讯
+      Weex-Demos-android-2018
     </h1>
   
 
@@ -233,12 +234,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIDL/">AIDL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Binder/">Binder</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Android/">Android</a>
+	<a class="article-category-link" href="/categories/weex/">weex</a>
 	</div>
 
 
@@ -248,19 +249,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>android studio的使用方式和eclipse大不相同，因为as是基于gradle构建项目的，eclipse是使用ant的方式构建。aidl文件，定义了不同的进程之间进行通讯的接口，那as怎么创建的呢？</p>
+        <p>更新：2018年新增了android工程，weex demo，写了一些weex小案例，仅供参考。可以学习weex原理和应用。跨平台应用的特定语法，package.json的写法，webpackge的配置，vue.js的写法，android继承weex，以及weex调试等。<br>也可以去github直接看效果:star，fork一下吧！<br><a href="https://github.com/duqian291902259/weex-demo-dusan" target="_blank" rel="external">https://github.com/duqian291902259/weex-demo-dusan</a></p>
 <a id="more"></a>
-<h3 id="一，AIDL是什么鬼？"><a href="#一，AIDL是什么鬼？" class="headerlink" title="一，AIDL是什么鬼？"></a>一，AIDL是什么鬼？</h3><p>在Android平台，一个进程通常不能访问另一个进程的内存空间，所以要想对话，需要将对象分解成操作系统可以理解的基本单元，并且有序的通过进程边界。由于每个应用程序都运行在自己的进程空间，并且可以从应用程序UI运行另一个服务进程，而且经常会在不同的进程间传递对象。Android提供了AIDL工具来处理这项工作。</p>
-<p>*</p>
-<blockquote>
-<p>AIDL (Android Interface Definition Language)是一种IDL<br>语言，用于生成可以在Android设备上两个进程之间进行进程间通信(IPC)的代码。如果在一个进程中（例如Activity）要调用另一个进程中（例如Service）对象的操作，就可以使用AIDL生成可序列化的参数。<br>*</p>
-</blockquote>
-<p>AIDL IPC机制是面向接口的，像COM或Corba一样，但是更加轻量级。它是使用代理类在客户端和实现端传递数据。</p>
-<h3 id="二，as自动构建，很简单"><a href="#二，as自动构建，很简单" class="headerlink" title="二，as自动构建，很简单"></a>二，as自动构建，很简单</h3><p>选中你的项目module，右键&gt;New&gt;AIDL&gt;AIDL File&gt;IServiceInterface.aidl，as就会自动创建带有AndroidManifest.xml中packageName一样的包名，以及aidl文件。如图：<br><img src="http://img.blog.csdn.net/20160520104152832" alt="IServiceInterface.aidl 文件的创建"></p>
-<h3 id="三，编写aidl接口"><a href="#三，编写aidl接口" class="headerlink" title="三，编写aidl接口"></a>三，编写aidl接口</h3><p>这里的接口代码，不能带有修饰符，不能加public。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// IServiceInterface.aidl</span></div><div class="line"><span class="keyword">package</span> com.oair.oair_1;</div><div class="line"></div><div class="line"><span class="comment">// Declare any non-default types here with import statements</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IServiceInterface</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="function">String <span class="title">getServiceName</span><span class="params">()</span></span>;<span class="comment">//自定义的方法</span></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Demonstrates some basic types that you can use as parameters</div><div class="line">     * and return values in AIDL.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">basicTypes</span><span class="params">(<span class="keyword">int</span> anInt, <span class="keyword">long</span> aLong, <span class="keyword">boolean</span> aBoolean, <span class="keyword">float</span> aFloat,</span></span></div><div class="line">            <span class="keyword">double</span> aDouble, String aString);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>编写的接口，随时可以增删，提高扩展性，提供给远程调用者。<br>可以通过as的菜单：<code>build&gt;&gt;Make Project</code>，生成对应的java文件。创建完之后在<code>build/generated/source/aidl/debug</code>下就可以见到自动生成的java文件</p>
-<h3 id="四，aidl接口规范总结"><a href="#四，aidl接口规范总结" class="headerlink" title="四，aidl接口规范总结"></a>四，aidl接口规范总结</h3><h4 id="1，Java编程语言的主要类型-int-boolean等-—-不需要-import-语句。"><a href="#1，Java编程语言的主要类型-int-boolean等-—-不需要-import-语句。" class="headerlink" title="1，Java编程语言的主要类型 (int, boolean等) — 不需要 import 语句。"></a>1，Java编程语言的主要类型 (int, boolean等) — 不需要 import 语句。</h4><h4 id="2，不会有返回给调用方的异常。"><a href="#2，不会有返回给调用方的异常。" class="headerlink" title="2，不会有返回给调用方的异常。"></a>2，不会有返回给调用方的异常。</h4><h4 id="3，默认IPC调用是同步的。如果已知IPC服务端会花费很多毫秒才能完成，可以试着在独立的线程中调用。"><a href="#3，默认IPC调用是同步的。如果已知IPC服务端会花费很多毫秒才能完成，可以试着在独立的线程中调用。" class="headerlink" title="3，默认IPC调用是同步的。如果已知IPC服务端会花费很多毫秒才能完成，可以试着在独立的线程中调用。"></a>3，默认IPC调用是同步的。如果已知IPC服务端会花费很多毫秒才能完成，可以试着在独立的线程中调用。</h4><h4 id="4，AIDL接口中只支持方法，不能声明静态成员。"><a href="#4，AIDL接口中只支持方法，不能声明静态成员。" class="headerlink" title="4，AIDL接口中只支持方法，不能声明静态成员。"></a>4，AIDL接口中只支持方法，不能声明静态成员。</h4><p>欢迎交流，Dusan，Q291902259。</p>
+<h1 id="weex-demo-dusan"><a href="#weex-demo-dusan" class="headerlink" title="weex-demo-dusan"></a>weex-demo-dusan</h1><p><img src="https://github.com/duqian291902259/weex-demo-dusan/blob/master/screenshot/weex-demo-dusan.gif" alt="splash"></p>
+<h2 id="How-to-start"><a href="#How-to-start" class="headerlink" title="How to start"></a>How to start</h2><p>This demo is based on weex.<br>so,you should ensure that installed the environment of weex ,A framework for building Mobile cross-platform UI: <a href="https://github.com/apache/incubator-weex" target="_blank" rel="external">https://github.com/apache/incubator-weex</a></p>
+<p>先安装好weex的各种脚手架工具。再按照以下说明运行本项目demo。</p>
+<hr>
+<h2 id="About-项目说明："><a href="#About-项目说明：" class="headerlink" title="About 项目说明："></a>About 项目说明：</h2><h3 id="weex-android-demo"><a href="#weex-android-demo" class="headerlink" title="weex-android-demo"></a>weex-android-demo</h3><p>基于weex sdk及官方demo，使用vue写weex页面，web和android端测试渲染效果，新增了多个实例demo，js来自weex-demo编译打包后的js bundle文件，放在assets目录里面。更新如下：</p>
+<h5 id="1，多WXSDKInstance实现子页面。"><a href="#1，多WXSDKInstance实现子页面。" class="headerlink" title="1，多WXSDKInstance实现子页面。"></a>1，多WXSDKInstance实现子页面。</h5><h5 id="2，从android-asset目录，网络加载weex-js。"><a href="#2，从android-asset目录，网络加载weex-js。" class="headerlink" title="2，从android asset目录，网络加载weex js。"></a>2，从android asset目录，网络加载weex js。</h5><h5 id="3，Native和Weex页面交互。"><a href="#3，Native和Weex页面交互。" class="headerlink" title="3，Native和Weex页面交互。"></a>3，Native和Weex页面交互。</h5><h5 id="4，拓展原生module，图片加载，Toast，相互通信等。"><a href="#4，拓展原生module，图片加载，Toast，相互通信等。" class="headerlink" title="4，拓展原生module，图片加载，Toast，相互通信等。"></a>4，拓展原生module，图片加载，Toast，相互通信等。</h5><h5 id="5，使用Vue重写以前的demo，测试新的weex-ui组件。"><a href="#5，使用Vue重写以前的demo，测试新的weex-ui组件。" class="headerlink" title="5，使用Vue重写以前的demo，测试新的weex-ui组件。"></a>5，使用Vue重写以前的demo，测试新的weex-ui组件。</h5><p><img src="https://github.com/duqian291902259/weex-demo-dusan/blob/master/weex-android-demo/release/weex-android-demos.jpeg" alt="android-demos"></p>
+<h2 id="weex-demo"><a href="#weex-demo" class="headerlink" title="weex-demo"></a>weex-demo</h2><p>使用最近的weex版本，用vue.js开发的一些demo，测试常用的一些场景。配合weex-android-demo使用。以下是前端开发常用命令：</p>
+<h3 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h3><p>install all dependencies, weex-ui.<br>进入你本地weex-demo根目录，安装所有依赖包，本项目使用了weex-ui，也一并安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /path/to/weex-demo </div><div class="line">npm install</div><div class="line">npm i weex-ui -S</div></pre></td></tr></table></figure>
+<p>install babel-preset-stage-0<br>为了不打包所有的组件，你需要使用 babel-plugin-component 来只引入需要的组件打包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i babel-preset-stage-0 babel-plugin-component  -D</div></pre></td></tr></table></figure>
+<h3 id="npm-start"><a href="#npm-start" class="headerlink" title="npm start"></a>npm start</h3><p>Starts the development server for you to preview your weex page on browser.<br>You can also scan the QR code using weex playground to preview weex page on native.</p>
+<h3 id="npm-run-build"><a href="#npm-run-build" class="headerlink" title="npm run build"></a>npm run build</h3><p>build src with webpack.Packaging html5 project into <code>/dist</code> folder.</p>
+<h3 id="npm-run-dev"><a href="#npm-run-dev" class="headerlink" title="npm run dev"></a>npm run dev</h3><p>Open the code compilation task in watch mode.</p>
+<h3 id="npm-run-serve"><a href="#npm-run-serve" class="headerlink" title="npm run serve"></a>npm run serve</h3><p>Starts local server for develop weex page:<br>Project is running at local server，like <a href="http://192.168.0.68:8081/" target="_blank" rel="external">http://192.168.0.68:8081/</a></p>
+<p>preview your page:<br><a href="http://192.168.0.68:8081/web/index.html?page=/dist/index.js" target="_blank" rel="external">http://192.168.0.68:8081/web/index.html?page=/dist/index.js</a></p>
+<p>the dist file：<br><a href="http://192.168.0.68:8081/dist/index.js" target="_blank" rel="external">http://192.168.0.68:8081/dist/index.js</a></p>
+<h3 id="weex2016"><a href="#weex2016" class="headerlink" title="weex2016"></a>weex2016</h3><p>weex2016,基于weex早期版本，依然适用，但建议移步最新的官方文档。以最新的语法和sdk为准。</p>
+<h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><p>demo虽小，五脏俱全，weex三端统一，write once，run everywhere，sdk逐步完善，满足各种场景的展示，交互，动画等需求，值得研究和应用。</p>
+<p>2016年相关博文：</p>
+<p><a href="http://blog.csdn.net/dzsw0117/article/details/51702319" target="_blank" rel="external">1，Weex开源测试之环境搭建，weex未来展望</a></p>
+<p><a href="http://blog.csdn.net/dzsw0117/article/details/51773175" target="_blank" rel="external">2，Weex开发笔记</a></p>
+<h2 id="Thanks-to-weex-team！"><a href="#Thanks-to-weex-team！" class="headerlink" title="Thanks to weex team！"></a>Thanks to weex team！</h2><p>Weex，We will follow you!</p>
 
       
     </div>
@@ -270,18 +283,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/01/10/MarkDown语法书写blog-参考csdn模版/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          欢迎使用Markdown编辑器写博客
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/19/Mac下反编译Android安装包/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac下反编译Android安装包－APK文件</div>
+    <a href="/2018/01/30/android应用内悬浮窗完美实现-无需权限/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android应用内悬浮窗完美实现-无需权限</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -316,7 +320,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Android Studio 创建aidl文件，用于进程间通讯" data-title="Android Studio 创建aidl文件，用于进程间通讯" data-url="http://duqian.site/2016/11/22/Android Studio 创建aidl文件，用于进程间通讯/"></div>
+	<div class="ds-thread" data-thread-key="Weex最新实践-weex-demos-android-2018" data-title="Weex-Demos-android-2018" data-url="http://duqian.site/2018/02/06/Weex最新实践-weex-demos-android-2018/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
