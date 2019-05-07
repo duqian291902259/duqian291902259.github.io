@@ -4,25 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Android之MVP架构 | Android专栏-杜乾，Dusan&#39;s blog</title>
+  <title>The Best SoLoader-优雅的so动态加载方案 | Android专栏-杜乾，Dusan&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Google在3月份推出了Android MVP架构的各种组合，据说学习价值极高。我们不得不持续学习，以下是一些笔记。">
+  <meta name="description" content="无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。
+在应用启动的时,一次注入本地so路径path，待程序使用过程中so准备后安全加载。so库动态加载黑科技，安全可靠，线上验证，强烈推荐！注入路径后，加载so的姿势不变。
+如果项目native库很多，还支持各种平台，为了减少apk size，so库动态下发，按需加载是不错的选择。比如x86库服务器下发，动态加载，瘦身效果将非常可观。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android之MVP架构">
-<meta property="og:url" content="http://duqian.site/2016/04/26/Android之MVP架构/index.html">
+<meta property="og:title" content="The Best SoLoader-优雅的so动态加载方案">
+<meta property="og:url" content="http://duqian.site/2019/05/07/The Best SoLoader-优雅的so动态加载方案/index.html">
 <meta property="og:site_name" content="Android专栏-杜乾，Dusan's blog">
-<meta property="og:description" content="Google在3月份推出了Android MVP架构的各种组合，据说学习价值极高。我们不得不持续学习，以下是一些笔记。">
-<meta property="og:image" content="http://img.blog.csdn.net/20160426121538399">
-<meta property="og:image" content="http://img.blog.csdn.net/20160426121812078">
-<meta property="og:image" content="http://img.blog.csdn.net/20160426123140264">
-<meta property="og:image" content="http://img.blog.csdn.net/20160426123307817">
-<meta property="og:image" content="http://img.blog.csdn.net/20160426123647884">
-<meta property="og:image" content="http://img.blog.csdn.net/20160426123717907">
-<meta property="og:updated_time" content="2017-03-17T09:51:37.000Z">
+<meta property="og:description" content="无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。
+在应用启动的时,一次注入本地so路径path，待程序使用过程中so准备后安全加载。so库动态加载黑科技，安全可靠，线上验证，强烈推荐！注入路径后，加载so的姿势不变。
+如果项目native库很多，还支持各种平台，为了减少apk size，so库动态下发，按需加载是不错的选择。比如x86库服务器下发，动态加载，瘦身效果将非常可观。">
+<meta property="og:updated_time" content="2019-05-07T08:44:23.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android之MVP架构">
-<meta name="twitter:description" content="Google在3月份推出了Android MVP架构的各种组合，据说学习价值极高。我们不得不持续学习，以下是一些笔记。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160426121538399">
+<meta name="twitter:title" content="The Best SoLoader-优雅的so动态加载方案">
+<meta name="twitter:description" content="无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。
+在应用启动的时,一次注入本地so路径path，待程序使用过程中so准备后安全加载。so库动态加载黑科技，安全可靠，线上验证，强烈推荐！注入路径后，加载so的姿势不变。
+如果项目native库很多，还支持各种平台，为了减少apk size，so库动态下发，按需加载是不错的选择。比如x86库服务器下发，动态加载，瘦身效果将非常可观。">
   
     <link rel="alternative" href="/atom.xml" title="Android专栏-杜乾，Dusan&#39;s blog" type="application/atom+xml">
   
@@ -212,11 +211,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Android之MVP架构" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-The Best SoLoader-优雅的so动态加载方案" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/26/Android之MVP架构/" class="article-date">
-  	<time datetime="2016-04-26T12:55:00.000Z" itemprop="datePublished">2016-04-26</time>
+      <a href="/2019/05/07/The Best SoLoader-优雅的so动态加载方案/" class="article-date">
+  	<time datetime="2019-05-07T08:26:06.000Z" itemprop="datePublished">2019-05-07</time>
 </a>
     </div>
   
@@ -229,7 +228,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android之MVP架构
+      The Best SoLoader-优雅的so动态加载方案
     </h1>
   
 
@@ -238,7 +237,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVP/">MVP</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NDK/">NDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源项目/">开源项目</a></li></ul>
 	</div>
 
         
@@ -253,22 +252,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Google在3月份推出了Android MVP架构的各种组合，据说学习价值极高。我们不得不持续学习，以下是一些笔记。</p>
+        <p>无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。</p>
+<p>在应用启动的时,一次注入本地so路径path，待程序使用过程中so准备后安全加载。so库动态加载黑科技，安全可靠，线上验证，强烈推荐！注入路径后，加载so的姿势不变。</p>
+<p>如果项目native库很多，还支持各种平台，为了减少apk size，so库动态下发，按需加载是不错的选择。比如x86库服务器下发，动态加载，瘦身效果将非常可观。</p>
 <a id="more"></a>
-<p>官方MVP项目的Github地址是：<br><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">https://github.com/googlesamples/android-architecture</a></p>
-<h3 id="一，Google-MVP-项目有哪些？"><a href="#一，Google-MVP-项目有哪些？" class="headerlink" title="一，Google MVP 项目有哪些？"></a>一，Google MVP 项目有哪些？</h3><h4 id="1，目前已经完成的开源项目："><a href="#1，目前已经完成的开源项目：" class="headerlink" title="1，目前已经完成的开源项目："></a>1，目前已经完成的开源项目：</h4><p>todo-mvp（mvp基础架构示例）<br>todo-mvp-loaders（基于mvp基础架构项目，获取数据部分使用了Loaders架构）<br>todo-mvp-databinding（基于mvp基础架构项目，使用了数据绑定组件）</p>
-<h4 id="2，仍在进展中的开源项目："><a href="#2，仍在进展中的开源项目：" class="headerlink" title="2，仍在进展中的开源项目："></a>2，仍在进展中的开源项目：</h4><p>todo-mvp-contentproviders（基于mvp基础架构项目，使用了Content Providers）<br>todo-mvp-clean（基于mvp基础架构项目，使用了clean架构的概念）<br>todo-mvp-dagger（基于mvp基础架构项目，使用了dagger2进行依赖注入）</p>
-<h3 id="二，官方todo－MVP项目的实现方式"><a href="#二，官方todo－MVP项目的实现方式" class="headerlink" title="二，官方todo－MVP项目的实现方式"></a>二，官方todo－MVP项目的实现方式</h3><p>官方示例实现mvp的总体的轮廓，关于项目中业务代码我们仅列出了任务详情页（taskDetail）的相关类，其他业务代码类似.<br>1,mvp实现了三层架构<br><img src="http://img.blog.csdn.net/20160426121538399" alt="mvp实现了三层架构"><br>2.相关类图。<br><img src="http://img.blog.csdn.net/20160426121812078" alt="业务逻辑"></p>
-<h3 id="三，测试相关组件"><a href="#三，测试相关组件" class="headerlink" title="三，测试相关组件"></a>三，测试相关组件</h3><h4 id="1，示例项目的测试方面。"><a href="#1，示例项目的测试方面。" class="headerlink" title="1，示例项目的测试方面。"></a>1，示例项目的测试方面。</h4><p>对视图逻辑(view层)和业务逻辑(presenter层)进行了拆分，可以对UI、业务代码分别进行测试。</p>
-<blockquote>
-<p>P层：不需要任何Android环境，因此使用Junit测试即可<br>V层：使用Google强大的Espresso进行UI的测试<br>M层：涉及到数据库相关操作，因此需要依赖Android环境，使用AndroidJUnitRunner进行测试</p>
-</blockquote>
-<h4 id="2，关于单元测试，需要预先了解以下内容："><a href="#2，关于单元测试，需要预先了解以下内容：" class="headerlink" title="2，关于单元测试，需要预先了解以下内容："></a>2，关于单元测试，需要预先了解以下内容：</h4><p>junit：对业务层进行单元测试。<br>Android Studio的test和AndroidTest：官方测试框架<br>AndroidJUnitRunner：一个兼容Junit4的Andriod单元测试框架。<br>Mockito：生成测试mock对象，单元测试利器。<br>Espresso：进行UI测试。<br>dexmaker：支撑mockito。<br>hamcrest：可读性更高，更加灵活，测试代码的匹配更接近自然语言。</p>
-<h3 id="四，todo项目结构"><a href="#四，todo项目结构" class="headerlink" title="四，todo项目结构"></a>四，todo项目结构</h3><h4 id="1，view层：负责UI展示，包含了三个模块：待办事项列表模块，待办事项详情模块，统计模块。"><a href="#1，view层：负责UI展示，包含了三个模块：待办事项列表模块，待办事项详情模块，统计模块。" class="headerlink" title="1，view层：负责UI展示，包含了三个模块：待办事项列表模块，待办事项详情模块，统计模块。"></a>1，view层：负责UI展示，包含了三个模块：待办事项列表模块，待办事项详情模块，统计模块。</h4><p><img src="http://img.blog.csdn.net/20160426123140264" alt="添加的todo"><br><img src="http://img.blog.csdn.net/20160426123307817" alt="new todo"></p>
-<h4 id="2，presenter层：调用presenter代码来处理业务逻辑"><a href="#2，presenter层：调用presenter代码来处理业务逻辑" class="headerlink" title="2，presenter层：调用presenter代码来处理业务逻辑"></a>2，presenter层：调用presenter代码来处理业务逻辑</h4><p><img src="http://img.blog.csdn.net/20160426123647884" alt="Presenter"></p>
-<h4 id="3，model层：存取数据。和presenter交互，脱离view"><a href="#3，model层：存取数据。和presenter交互，脱离view" class="headerlink" title="3，model层：存取数据。和presenter交互，脱离view"></a>3，model层：存取数据。和presenter交互，脱离view</h4><p><img src="http://img.blog.csdn.net/20160426123717907" alt="model data层"><br>MVP模式下，View层做的事情都能做了，如UI布局，数据渲染，点击按钮交互等。<br>activity在项目中是一个全局的控制者，负责创建view以及presenter实例，并将二者联系起来。<br>需要界面做对应的变化，presenter直接调用view层的方法即可。<br>实例中，数据的获取、存储、数据状态变化都是model层的任务，presenter会根据需要调用该层的数据处理逻辑并在需要时将回调传入。这样model、presenter、view都只处理各自的任务。</p>
-<h3 id="五，总结"><a href="#五，总结" class="headerlink" title="五，总结"></a>五，总结</h3><p>实际的项目中应用了，有些时候想用MVP的，官方的demo的确提供了一个很好的参考。MVC，MVP和MVVM都需要了解。<br>UI代码与业务代码分离，不再像之前的activity那么臃肿。如此，UI层和业务层可以分别进行单元测试；虽然代码量可能增加，但各个类职责都非常明确，各司其职，后期的扩展，维护都会更加容易。<br>杜乾，Dusan，291902259，欢迎交流。</p>
-
+<h1 id="DQ-Android-Labs"><a href="#DQ-Android-Labs" class="headerlink" title="DQ-Android-Labs"></a>DQ-Android-Labs</h1><p>Contains various magical modules with cool tech in the future.such as soloader….</p>
+<p>New modules are being updated…</p>
+<p>Github–&gt;: <a href="https://github.com/duqian291902259/DQ-Android-Labs" target="_blank" rel="external">The best SoLoader for android</a></p>
+<h3 id="1，SoLoader，android动态加载so库"><a href="#1，SoLoader，android动态加载so库" class="headerlink" title="1，SoLoader，android动态加载so库"></a>1，SoLoader，android动态加载so库</h3><h4 id="无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。"><a href="#无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。" class="headerlink" title="无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。"></a>无需修改已有工程的so加载逻辑，支持so动态下发并安全加载的方案。</h4><p>如果项目native库很多，还支持各种平台，为了减少apk size，so库动态下发，按需加载是不错的选择。比如x86库服务器下发，动态加载，瘦身效果将非常可观。但是采取常规load方式，改动有点大，底层jar包，第三库不好改加载路径吖。so follow me：</p>
+<p>在应用启动的时,一次注入本地so路径path，待程序使用过程中so准备后安全加载。so库动态加载黑科技，安全可靠，线上验证，强烈推荐！注入路径后，加载so的姿势不变：</p>
+<p>1，System.loadLibrary(soName); 无需改变系统load方法，注入路径后照常加载，推荐。</p>
+<p>2，使用第三方库ReLinker，有so加载成功、失败的回调，安全加载不崩溃。</p>
+<p>3，System.load(soAbsolutePath);传统方法指定so路径加载，不适合大项目和第三方lib，so下发加载不够灵活，不推荐。</p>
+<!-- more -->
+<h3 id="Quik-Start"><a href="#Quik-Start" class="headerlink" title="Quik Start"></a>Quik Start</h3><p>下载demo，使用Android Studio打开soloader工程。<br>把自定义的native库path插入nativeLibraryDirectories最前面，即使安装包libs目录里面有同名的so，也优先加载指定路径的外部so。可参考插件化、热更新开源库了解其思想，部分代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">install</span><span class="params">(ClassLoader classLoader, File folder)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">            Field pathListField = ReflectUtil.findField(classLoader, <span class="string">"pathList"</span>);</div><div class="line">            Object dexPathList = pathListField.get(classLoader);</div><div class="line">            Field nativeLibraryDirectories = ReflectUtil.findField(dexPathList, <span class="string">"nativeLibraryDirectories"</span>);</div><div class="line"></div><div class="line">            List&lt;File&gt; libDirs = (List&lt;File&gt;) nativeLibraryDirectories.get(dexPathList);</div><div class="line">            <span class="comment">//去重</span></div><div class="line">            <span class="keyword">if</span> (libDirs == <span class="keyword">null</span>) &#123;</div><div class="line">                libDirs = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">2</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">final</span> Iterator&lt;File&gt; libDirIt = libDirs.iterator();</div><div class="line">            <span class="keyword">while</span> (libDirIt.hasNext()) &#123;</div><div class="line">                <span class="keyword">final</span> File libDir = libDirIt.next();</div><div class="line">                <span class="keyword">if</span> (folder.equals(libDir) || folder.equals(lastSoDir)) &#123;</div><div class="line">                    libDirIt.remove();</div><div class="line">                    Log.d(TAG, <span class="string">"dq libDirIt.remove()"</span> + folder.getAbsolutePath());</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            libDirs.add(<span class="number">0</span>, folder);</div><div class="line">            <span class="comment">//system/lib</span></div><div class="line">            Field systemNativeLibraryDirectories = ReflectUtil.findField(dexPathList, <span class="string">"systemNativeLibraryDirectories"</span>);</div><div class="line">            List&lt;File&gt; systemLibDirs = (List&lt;File&gt;) systemNativeLibraryDirectories.get(dexPathList);</div><div class="line"></div><div class="line">            <span class="comment">//判空</span></div><div class="line">            <span class="keyword">if</span> (systemLibDirs == <span class="keyword">null</span>) &#123;</div><div class="line">                systemLibDirs = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">2</span>);</div><div class="line">            &#125;</div><div class="line">            Log.d(TAG, <span class="string">"dq systemLibDirs,size="</span> + systemLibDirs.size());</div><div class="line"></div><div class="line">            Method makePathElements = ReflectUtil.findMethod(dexPathList, <span class="string">"makePathElements"</span>, List.class);</div><div class="line">            libDirs.addAll(systemLibDirs);</div><div class="line"></div><div class="line">            Object[] elements = (Object[]) makePathElements.invoke(dexPathList, libDirs);</div><div class="line">            Field nativeLibraryPathElements = ReflectUtil.findField(dexPathList, <span class="string">"nativeLibraryPathElements"</span>);</div><div class="line">            nativeLibraryPathElements.setAccessible(<span class="keyword">true</span>);</div><div class="line">            nativeLibraryPathElements.set(dexPathList, elements);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h3 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h3><p>Welcome to contact me: <a href="https://www.duqian.site" target="_blank" rel="external">duqian2010@gmail.com</a> or Wechat:dusan2010</p>
+<!-- more -->
       
     </div>
     
@@ -277,18 +277,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/01/Android网络框架OKHTTP-实践篇/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Android网络框架OKHTTP-实践篇
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/01/Android 6.0 运行时权限常识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android 6.0 运行时权限常识</div>
+    <a href="/2018/02/10/WechatHook-Android黑科技研究探索/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WechatHook-Android黑科技研究探索</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -323,7 +314,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Android之MVP架构" data-title="Android之MVP架构" data-url="http://duqian.site/2016/04/26/Android之MVP架构/"></div>
+	<div class="ds-thread" data-thread-key="The Best SoLoader-优雅的so动态加载方案" data-title="The Best SoLoader-优雅的so动态加载方案" data-url="http://duqian.site/2019/05/07/The Best SoLoader-优雅的so动态加载方案/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
